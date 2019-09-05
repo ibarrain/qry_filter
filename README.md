@@ -1,11 +1,11 @@
 # QryFilter
-Warning: This is a work in progress and should not be used in production.
+*Note: This is a work in progress and should not be used in production.*
 
-This is a simple Rails gem for handling query filters.
-Filter classes should be defined in 'app/lib/filters' e.g. UserFilter.
+QryFilter aka "QueryFilter" is a simple Rails gem that provides a pattern and helper when dealing with lots of filter clauses in your ActiveRecord query.
 
-## Usage (in the future)
-Filter Class:
+## Usage
+**Filter Class**
+You can define this inside ```app/filters```.
 ```ruby
 class UserFilter
   def default
@@ -23,25 +23,25 @@ class UserFilter
 end
 ```
 
-Class Method:
+**Class Method**
 ```ruby
 QryFilter.compose(scope, filter_hash: params)
 QryFilter.compose(scope, filter_hash: params, filter_by: [:id, :age])
 QryFilter.compose(scope, filter_hash: params, filter_by: [:id, :age], filter_class: UserFilter)
 ```
 
-Helper:
+**Helper**
 ```ruby
-filter User, filter_hash: params
-filter User, filter_hash: params, filter_by: [:id, :age]
-filter User, filter_hash: params, filter_by: [:id, :age], filter_class: UserFilter
+filter scope, filter_hash: params
+filter scope, filter_hash: params, filter_by: [:id, :age]
+filter scope, filter_hash: params, filter_by: [:id, :age], filter_class: UserFilter
 ```
 
-#TODO
--Autodetect Filter Class
--Work with ActiveRecord::Relation
--Generator for ApplicationFilter
--More tests
+## TODO
+- Autodetect Model name to match with Filter class
+- Work with ActiveRecord::Relation
+- Generator for ApplicationFilter
+- More tests
 
 ## Installation
 Add this line to your application's Gemfile:
