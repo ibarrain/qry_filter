@@ -55,9 +55,16 @@ Or install it yourself as:
 $ gem install qry_filter
 ```
 
-Generate app/filters/application_filter.rb: 
+Generate app/filters/application_filter.rb:
 ```bash
 $ rails g qry_filter:install
+```
+
+Include QryFilter in ApplicationController
+```ruby
+class ApplicationController < ActionController::Base
+  include QryFilter
+end
 ```
 
 ## Contributing
