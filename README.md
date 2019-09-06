@@ -5,20 +5,20 @@ QryFilter aka "QueryFilter" is a simple Rails gem that provides a pattern and he
 
 ## Usage
 **Filter Class**
-You can define this inside ```app/filters```.
 ```ruby
-class UserFilter
+# app/filters/user_filter.rb
+class UserFilter < ApplicationFilter
   def default
     by_id
     by_age
   end
 
   def by_id
-    @scope = @scope.where(id: filter_hash[:id])
+    @scope = @scope.where(id: @filter_hash[:id])
   end
 
   def by_age
-    @scope = @scope.where(age: filter_hash[:age])
+    @scope = @scope.where(age: @filter_hash[:age])
   end
 end
 ```
@@ -58,6 +58,11 @@ $ bundle
 Or install it yourself as:
 ```bash
 $ gem install qry_filter
+```
+
+Generate app/filters/application_filter.rb: 
+```bash
+$ rails g qry_filter:install
 ```
 
 ## Contributing
