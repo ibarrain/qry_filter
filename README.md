@@ -25,16 +25,16 @@ end
 
 **Class Method**
 ```ruby
-QryFilter.compose(scope, filter_hash: params)
-QryFilter.compose(scope, filter_hash: params, filter_by: [:id, :age])
-QryFilter.compose(scope, filter_hash: params, filter_by: [:id, :age], filter_class: UserFilter)
+QryFilter.compose(scope, params)
+QryFilter.compose(scope, params, filter_by: [:id, :age])
+QryFilter.compose(scope, params, filter_by: [:id, :age], filter_class: UserFilter)
 ```
 
 **Helper**
 ```ruby
-filter scope, filter_hash: params
-filter scope, filter_hash: params, filter_by: [:id, :age]
-filter scope, filter_hash: params, filter_by: [:id, :age], filter_class: UserFilter
+filter scope, params
+filter scope, params, filter_by: [:id, :age]
+filter scope, params, filter_by: [:id, :age], filter_class: UserFilter
 ```
 
 ## TODO

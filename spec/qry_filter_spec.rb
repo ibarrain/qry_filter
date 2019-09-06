@@ -18,7 +18,7 @@ describe QryFilter do
 
     it "finds the corresponding filter class" do
       result = QryFilter.compose(
-        @users, filter_hash:
+        @users,
         @filter_hash,
         filter_by: [:id]
       )
@@ -29,7 +29,7 @@ describe QryFilter do
     it "default filter when filter_by is not defined" do
       result = QryFilter.compose(
         @users,
-        filter_hash: @filter_hash,
+        @filter_hash,
         filter_class: UserFilter
       )
 
@@ -39,7 +39,7 @@ describe QryFilter do
     it "filters scope based on ID" do
       result = QryFilter.compose(
         @users,
-        filter_hash: @filter_hash,
+        @filter_hash,
         filter_class: UserFilter,
         filter_by: [:id]
       )
@@ -52,7 +52,7 @@ describe QryFilter do
     it "filters scope based on Age" do
       result = QryFilter.compose(
         @users,
-        filter_hash: @filter_hash,
+        @filter_hash,
         filter_class: UserFilter,
         filter_by: [:age]
       )
