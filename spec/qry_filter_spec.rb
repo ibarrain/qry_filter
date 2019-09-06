@@ -16,6 +16,16 @@ describe QryFilter do
       }
     end
 
+    it "finds the corresponding filter class" do
+      result = QryFilter.compose(
+        @users, filter_hash:
+        @filter_hash,
+        filter_by: [:id]
+      )
+
+      expect(result.pluck(:id)).to eq(@filter_hash[:id])
+    end
+
     it "default filter when filter_by is not defined" do
       result = QryFilter.compose(
         @users,
