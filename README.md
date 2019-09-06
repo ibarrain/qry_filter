@@ -1,6 +1,4 @@
 # QryFilter
-*Note: This is a work in progress and should not be used in production.*
-
 QryFilter aka "QueryFilter" is a simple Rails gem that provides a pattern and helper when dealing with lots of filter clauses in your ActiveRecord query.
 
 ## Usage
@@ -36,12 +34,6 @@ filter scope, params
 filter scope, params, filter_by: [:id, :age]
 filter scope, params, filter_by: [:id, :age], filter_class: UserFilter
 ```
-
-## TODO
-- Autodetect Model name to match with Filter class
-- Work with ActiveRecord::Relation
-- Generator for ApplicationFilter
-- More tests
 
 ## Installation
 Add this line to your application's Gemfile:
