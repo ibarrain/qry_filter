@@ -2,7 +2,6 @@ require "qry_filter/filter_class_finder"
 
 module QryFilter
   class << self
-
     def compose(scope, filter_hash, filter_class: nil, filter_by: nil)
       if filter_class.nil?
         filter_class = FilterClassFinder.new(scope).filter_class
@@ -20,6 +19,9 @@ module QryFilter
 
       filter.scope
     end
+  end
 
+  def filter(*args)
+    QryFilter.compose(*args)
   end
 end

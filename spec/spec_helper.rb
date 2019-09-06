@@ -27,3 +27,7 @@ class UserFilter
     @scope = @scope.where(age: @filter_hash[:age])
   end
 end
+
+class Controller
+  include QryFilter
+end
