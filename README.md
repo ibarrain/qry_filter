@@ -23,16 +23,19 @@ end
 
 **Class Method**
 ```ruby
-QryFilter.compose(scope, params)
-QryFilter.compose(scope, params, filter_by: [:id, :age])
-QryFilter.compose(scope, params, filter_by: [:id, :age], filter_class: UserFilter)
+params = {id: [1, 2, 3], age: [18, 20]}
+users = User.where(happy: true)
+
+QryFilter.compose(users, params)
+QryFilter.compose(users, params, filter_by: [:id, :age])
+QryFilter.compose(users, params, filter_by: [:id, :age], filter_class: UserFilter)
 ```
 
 **Helper**
 ```ruby
-filter scope, params
-filter scope, params, filter_by: [:id, :age]
-filter scope, params, filter_by: [:id, :age], filter_class: UserFilter
+filter User, params
+filter User, params, filter_by: [:id, :age]
+filter User, params, filter_by: [:id, :age], filter_class: UserFilter
 ```
 
 ## Installation
