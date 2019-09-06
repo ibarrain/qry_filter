@@ -3,38 +3,51 @@ require "spec_helper"
 describe QryFilter do
 
   describe ".compose" do
-    before do
-      @scope = [
-        {id: 1, name: 'A', age: 18},
-        {id: 2, name: 'B', age: 19},
-        {id: 3, name: 'C', age: 21}
-      ]
+    before(:all) do
+      User.create(id: 1, name: 'A', age: 18)
+      User.create(id: 2, name: 'B', age: 19)
+      User.create(id: 3, name: 'C', age: 21)
+
+      @users = User.all
+
+      @filter_hash = {
+        id: [1, 2],
+        age: [18, 21]
+      }
+    end
+
+    it "default filter when filter_by is not defined" do
+      result = QryFilter.compose(
+        @users,
+        filter_hash: @filter_hash,
+        filter_class: UserFilter
+      )
+
+      expect(result.pluck(:id)).to eq([1])
     end
 
     it "filters scope based on ID" do
-      hash = {id: [1, 2]}
-
       result = QryFilter.compose(
-        @scope,
-        filter_hash: hash,
+        @users,
+        filter_hash: @filter_hash,
         filter_class: UserFilter,
         filter_by: [:id]
       )
 
-      expect(result.map{|u| u[:id] }).to eq([1, 2])
+      result = result.pluck(:id)
+
+      expect(result).to eq(@filter_hash[:id])
     end
 
     it "filters scope based on Age" do
-      hash = {age: [18, 21]}
-
       result = QryFilter.compose(
-        @scope,
-        filter_hash: hash,
+        @users,
+        filter_hash: @filter_hash,
         filter_class: UserFilter,
         filter_by: [:age]
       )
 
-      expect(result.map{|u| u[:age] }).to eq([18, 21])
+      expect(result.pluck(:age)).to eq(@filter_hash[:age])
     end
   end
 
