@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version     = QryFilter::VERSION
   spec.authors     = ["Iñaki Ibarra"]
   spec.email       = ["inaki.mateo.ibarra@gmail.com"]
-  spec.homepage    = "https://github.com/ibarrain/qry_filter"
+  spec.homepage    = "https://github.com/inaki-ibarra/qry_filter"
   spec.summary     = "Query filter helper for Rails"
   spec.description = "A Rails add-on for handling query filters"
   spec.license     = "MIT"
