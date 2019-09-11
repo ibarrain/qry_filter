@@ -81,7 +81,8 @@ end
 ```
 
 ## Contributing
-Contribution directions go here.
+Fork the repo and submit a pull request.
+Please follow this [Rails style guide](https://github.com/rubocop-hq/rails-style-guide).
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
