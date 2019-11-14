@@ -1,3 +1,6 @@
+![](https://github.com/inaki-ibarra/qry_filter/workflows/CI/badge.svg)
+![](https://github.com/inaki-ibarra/qry_filter/workflows/CD/badge.svg)
+
 # QryFilter
 QryFilter aka "QueryFilter" is a simple Rails gem that provides a pattern and helper when dealing with lots of filter clauses in your ActiveRecord query.
 
