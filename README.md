@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/qry_filter.svg)](https://badge.fury.io/rb/qry_filter)
 ![](https://github.com/inaki-ibarra/qry_filter/workflows/CI/badge.svg)
 ![](https://github.com/inaki-ibarra/qry_filter/workflows/CD/badge.svg)
 
