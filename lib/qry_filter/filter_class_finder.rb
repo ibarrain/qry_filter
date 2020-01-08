@@ -1,5 +1,6 @@
-module QryFilter
+# frozen_string_literal: true
 
+module QryFilter
   class FilterClassFinder
     def initialize(scope)
       @scope = scope
@@ -16,14 +17,15 @@ module QryFilter
       if subject.is_a?(Array)
         modules = subject.dup
         last = modules.pop
-        context = modules.map { |x| find_class_name(x) }.join("::")
-        [context, find(last)].join("::")
+        context = modules.map { |x| find_class_name(x) }.join('::')
+        [context, find(last)].join('::')
       else
         class_name = find_class_name(subject)
         "#{class_name}Filter"
       end
     end
 
+    # rubocop:disable Metrics/MethodLength
     def find_class_name(subject)
       if subject.respond_to?(:model_name)
         subject.model_name
@@ -37,6 +39,6 @@ module QryFilter
         subject.class
       end
     end
+    # rubocop:enable Metrics/MethodLength
   end
-
 end

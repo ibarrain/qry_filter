@@ -1,4 +1,6 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 describe QryFilter do
   let(:controller) { Controller.new }
@@ -16,8 +18,8 @@ describe QryFilter do
     }
   end
 
-  describe ".compose" do
-    it "finds the corresponding filter class" do
+  describe '.compose' do
+    it 'finds the corresponding filter class' do
       result = QryFilter.compose(
         @users,
         @filter_hash,
@@ -27,7 +29,7 @@ describe QryFilter do
       expect(result.pluck(:id)).to eq(@filter_hash[:id])
     end
 
-    it "default filter when filter_by is not defined" do
+    it 'default filter when filter_by is not defined' do
       result = QryFilter.compose(
         @users,
         @filter_hash,
@@ -37,7 +39,7 @@ describe QryFilter do
       expect(result.pluck(:id)).to eq([1])
     end
 
-    it "filters scope based on ID" do
+    it 'filters scope based on ID' do
       result = QryFilter.compose(
         @users,
         @filter_hash,
@@ -50,7 +52,7 @@ describe QryFilter do
       expect(result).to eq(@filter_hash[:id])
     end
 
-    it "filters scope based on Age" do
+    it 'filters scope based on Age' do
       result = QryFilter.compose(
         @users,
         @filter_hash,
@@ -62,12 +64,11 @@ describe QryFilter do
     end
   end
 
-  describe ".filter" do
-    it "finds the corresponding filter class" do
+  describe '.filter' do
+    it 'finds the corresponding filter class' do
       result = controller.filter User, @filter_hash, filter_by: [:id]
 
       expect(result.pluck(:id)).to eq(@filter_hash[:id])
     end
   end
-
 end

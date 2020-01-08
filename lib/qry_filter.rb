@@ -1,4 +1,6 @@
-require "qry_filter/filter_class_finder"
+# frozen_string_literal: true
+
+require 'qry_filter/filter_class_finder'
 
 module QryFilter
   class << self
@@ -9,6 +11,12 @@ module QryFilter
 
       filter = filter_class.new(scope, filter_hash)
 
+      execute(filter, filter_by)
+    end
+
+    protected
+
+    def execute(filter, filter_by)
       if filter_by.nil?
         filter.send(:default)
       else

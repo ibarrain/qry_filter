@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationFilter
   attr_reader :scope
 
@@ -6,6 +8,5 @@ class ApplicationFilter
     @filter_hash = filter_hash
   end
 
-  def default
-  end
+  def default; end
 end
