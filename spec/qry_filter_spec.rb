@@ -33,6 +33,7 @@ describe QryFilter do
       result = QryFilter.compose(
         @users,
         @filter_hash,
+        filter_by: [],
         filter_class: UserFilter
       )
 

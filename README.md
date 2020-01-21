@@ -10,11 +10,6 @@ QryFilter aka "QueryFilter" is a simple Rails gem that provides a pattern and he
 ```ruby
 # app/filters/user_filter.rb
 class UserFilter < ApplicationFilter
-  def default
-    by_id
-    by_age
-  end
-
   def by_id
     @scope = @scope.where(id: @filter_hash[:id])
   end
@@ -52,7 +47,7 @@ filter User, params, filter_by: [:id, :age], filter_class: UserFilter
 - The first argument accepts ActiveRecord::Relation or model class name.
 - The second is for key-value pair of data you want to pass to your filter class.
 - The last argument is a hash and allows you to set ```filter_by``` and ```filter_class```
-- ```filter_by``` maps with your filter class methods e.g. ```[:id]``` will only trigger ```by_id``` method.
+- ```filter_by``` maps with your filter class methods e.g. ```[:id]``` will only trigger ```by_id``` method. If empty, all filters will be triggered.
 - ```filter_class``` allows you to set a specific class when needed.
 
 ## Installation

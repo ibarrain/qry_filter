@@ -16,11 +16,6 @@ class UserFilter
     @filter_hash = filter_hash
   end
 
-  def default
-    by_id
-    by_age
-  end
-
   def by_id
     @scope = @scope.where(id: @filter_hash[:id])
   end

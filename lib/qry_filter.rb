@@ -17,15 +17,28 @@ module QryFilter
     protected
 
     def execute(filter, filter_by)
-      if filter_by.nil?
-        filter.send(:default)
+      if filter_by.nil? || filter_by.empty?
+        filter_all(filter)
       else
-        filter_by.each do |subject|
-          filter.send("by_#{subject}")
-        end
+        filter_explicit(filter, filter_by)
       end
 
       filter.scope
+    end
+
+    private
+
+    def filter_all(filter)
+      methods = filter.class.instance_methods - Object.instance_methods
+      methods.each do |method|
+        filter.send(method)
+      end
+    end
+
+    def filter_explicit(filter, filter_by)
+      filter_by.each do |subject|
+        filter.send("by_#{subject}")
+      end
     end
   end
 
