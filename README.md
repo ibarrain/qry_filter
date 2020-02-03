@@ -22,7 +22,7 @@ end
 
 **In Controller**
 ```ruby
-# app/controllers/user_controller.rb
+# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   def index
     users = filter User, params
@@ -46,7 +46,7 @@ filter User, params, filter_by: [:id, :age], filter_class: UserFilter
 ```
 - The first argument accepts ActiveRecord::Relation or model class name.
 - The second is for key-value pair of data you want to pass to your filter class.
-- The last argument is a hash and allows you to set ```filter_by``` and ```filter_class```
+- The last argument is an optional hash and allows you to set ```filter_by``` and ```filter_class```
 - ```filter_by``` maps with your filter class methods e.g. ```[:id]``` will only trigger ```by_id``` method. If empty, all filters will be triggered.
 - ```filter_class``` allows you to set a specific class when needed.
 
