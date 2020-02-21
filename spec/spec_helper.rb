@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+SimpleCov.start
+
 require 'qry_filter'
 require 'active_record'
 

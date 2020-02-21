@@ -8,14 +8,25 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+
       - name: Set up Ruby 2.6
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.x
+
       - name: Install native libraries
         run: sudo apt-get install libsqlite3-dev
+
       - name: Build and test with Rake
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
           bundle exec rake
+
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.4.0
+        with:
+          coverageCommand: echo ${{secrets.CC_TEST_REPORTER_ID}}
+          coverageLocations: "coverage/.resultset.json:simplecov"
+        env:
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
