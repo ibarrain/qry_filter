@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     'README.md'
   ]
 
-  spec.add_development_dependency 'activerecord', '~> 6.0'
+  spec.add_development_dependency 'activerecord', '~> 7.0'
   spec.add_development_dependency 'rake', '~> 13.0.1'
   spec.add_development_dependency 'rspec', '~> 3.8'
   spec.add_development_dependency 'rubocop', '~> 0.79.0'
